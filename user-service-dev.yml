@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: user-server
+  cloud:
+    config:
+      url: http://localhost:9000
+      profile: dev
+      enabled: true
+
+application:
+  title: 'Config Server'
+  version: 0.0.1-snapshot
+  author: 'Tino Acuna'
+
+server:
+  port: ${CUSTOM.SERVER.PORT:9004}
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+encrypt:
+  key: mitocode
