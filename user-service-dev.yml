@@ -1,26 +1,19 @@
-spring:
-  application:
-    name: user-service
-  cloud:
-    config:
-      url: http://localhost:9000
-      profile: dev
-      enabled: true
-  data:
-    mongodb:
-      # host: localhost
-      # port: 27017
-      database: tinoacuna_db
-      uri: mongodb://tinoacuna:tinoacuna@localhost:27017
-      authentication-database: admin
-
 application:
-  title: 'Config Server'
+  title: 'User Service'
   version: 0.0.1-snapshot
   author: 'Tino Acuna'
 
 server:
-  port: ${CUSTOM.SERVER.PORT:9004}
+  port: 9004
+
+spring:
+  application:
+    name: user-service
+  data:
+    mongodb:
+      database: tinoacuna_db
+      uri: mongodb://tinoacuna:tinoacuna@localhost:27017
+      authentication-database: admin
 
 eureka:
   client:
@@ -28,9 +21,6 @@ eureka:
     register-with-eureka: true
     service-url:
       defaultZone: http://localhost:8761/eureka
-
-spring:
-
 
 encrypt:
   key: mitocode
